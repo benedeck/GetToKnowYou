@@ -1,0 +1,78 @@
+.container {
+  background-color: var(--brown);
+  min-height: 100vh;
+  height: 100vh;
+  padding: 2rem 0 0 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.main h1 {
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.main h1::after {
+  content: "";
+  width: 80%;
+  height: 0;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  border-bottom: 2px solid black;
+  z-index: 1;
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.list {
+  width: 100%;
+  position: relative;
+}
+
+.list ul{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.list ul li{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex: 1;
+    padding-bottom: 2rem;
+}
+
+.button{
+    background-color: transparent;
+    transition: .3s all;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: .5rem;
+    color: black;
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons .button{
+    align-self: flex-end;
+}

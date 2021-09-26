@@ -1,0 +1,161 @@
+.container {
+  background-color: var(--red);
+  min-height: 100vh;
+  height: 100vh;
+  padding: 4rem 0 0 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.input {
+  width: 100%;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  transition: 0.3s all;
+}
+
+.input:focus,
+.input:focus-visible,
+.input:focus-within,
+.input::selection {
+  outline: none;
+  padding-bottom: 0.5rem;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.281);
+}
+
+.firstSection {
+  width: 100%;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  transition: 0.3s all;
+  position: relative;
+  min-height: 15rem;
+  overflow-x: clip;
+}
+
+.firstSection .divider.shown {
+  border-bottom: 5px solid white;
+}
+
+.firstSection .input {
+  width: 50%;
+  margin-bottom: 3rem;
+}
+
+.firstSection .divider {
+  width: 150%;
+  border-bottom: 5px solid transparent;
+  transition: 0.3s all;
+  height: 0;
+  position: absolute;
+  bottom: 7.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s all;
+}
+
+.main .firstSection .divider::before{
+  content: "... would get to know ...";
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: white;
+  opacity: 0;
+  transition: .3s all;
+}
+
+.main.steptwo .firstSection .divider::before{
+  opacity: 1;
+}
+
+.main .firstSection .divider::after {
+  content: "";
+  width: 150%;
+  height: 0;
+  background-color: var(--blue);
+  position: absolute;
+  top: 5px;
+  left: 0;
+  transition: .3s all;
+}
+
+.main.steptwo .firstSection .divider::after {
+  content: "";
+  width: 150%;
+  height: 40rem;
+  background-color: var(--blue);
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+
+.secondSection {
+  height: 0;
+  transition: 0.3s all;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+.proceedButton {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 0;
+  transition: .3s all;
+}
+
+.proceedButton.vis{
+  opacity: 1;
+}
+
+.proceedButton a {
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.main.steptwo .firstSection {
+  margin-top: 0;
+}
+
+.main.steptwo .firstSection .divider {
+  transform: translateX(-50%) rotate(-10deg);
+}
+
+.main.steptwo .secondSection {
+  height: 100px;
+  transition: 0.3s all;
+  flex: 1;
+}
+
+.secondSection .input {
+  width: 50%;
+  margin-bottom: 3rem;
+}
