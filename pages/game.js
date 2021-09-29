@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/Game.module.css";
 import cn from "classnames";
 import router, { useRouter } from "next/router";
@@ -45,14 +45,19 @@ const questions = [
 function GamePage() {
   const [count, setCount] = useState(0);
   const [turn, setTurn] = useState(0);
-  const [name1, setName1] = useState(null);
-  const [name2, setName2] = useState(null);
-  const [names, setNames] = useState(["name1", "name2"]);
+  const [names, setNames] = useState(["", ""]);
   const router = useRouter();
 
+  useEffect(() => {
+    const val = JSON.parse(localStorage.getItem("users"));
+    setNames(val.users);
+  }, []);
+
+  console.log(names);
+
   const handleNext = () => {
-    if(turn === 1 && count === questions.length - 1){
-        router.push('/end');
+    if (turn === 1 && count === questions.length - 1) {
+      router.push("/end");
     }
     if (turn === 1 && count < questions.length - 1) {
       setCount(count + 1);
@@ -74,7 +79,7 @@ function GamePage() {
   };
 
   return (
-    <div className={cn(styles.container, { [styles.first]: count % 2 === 0 })}>
+    <div className={cn(styles.container, { [styles.first]: turn % 2 === 0 })}>
       <div className={styles.main}>
         <h1 data-player={names[turn % 2]}>Question #{count + 1}</h1>
         <div className={styles.questions}>

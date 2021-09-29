@@ -15,6 +15,7 @@ export default function Home() {
       setStepTwo(true);
       return;
     }
+    localStorage.setItem("users", JSON.stringify({ users: [name1, name2] }));
   };
 
   return (
